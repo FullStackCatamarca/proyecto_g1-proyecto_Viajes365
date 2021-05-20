@@ -1,0 +1,43 @@
+﻿@model WebViajes365.Models.Departamentos
+
+@{
+    ViewBag.Title = "DetalleDepartamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetalleDepartamento</h2>
+
+<div>
+    <h4>Departamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idDpto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idDpto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cant_Itinerarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cant_Itinerarios)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Ediar", "Modificar", new { id = Model.idDpto }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>

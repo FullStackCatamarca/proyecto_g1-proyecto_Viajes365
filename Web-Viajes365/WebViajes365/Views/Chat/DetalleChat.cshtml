@@ -1,0 +1,43 @@
+﻿@model WebViajes365.Models.Chat
+
+@{
+    ViewBag.Title = "DetalleChat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetalleChat</h2>
+
+<div>
+    <h4>Chat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idChat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idChat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Consulta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consulta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Modificar", new { id = Model.idChat }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>

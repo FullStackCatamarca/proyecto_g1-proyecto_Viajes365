@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebViajes365.Models.AtractivoTuristico>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Atractivo", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idAtractivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoAtractivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idLocalidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idAtractivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoAtractivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idLocalidad)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar " href="@Url.Action("Modificar", "AtractivoTuristico", new {  id=item.idAtractivo })"><i class="glyphicon glyphicon-edit"></i> </a>
+            <a class="btn btn-info btn-xs" title="Detalles" href="@Url.Action("DetalleAtractivo", "AtractivoTuristico", new {  id=item.idAtractivo })"><i class="glyphicon glyphicon-pencil"></i> </a>
+            <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("EliminarAtractivo", "AtractivoTuristico", new {  id=item.idAtractivo })"><i class="glyphicon glyphicon-trash"></i> </a>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>

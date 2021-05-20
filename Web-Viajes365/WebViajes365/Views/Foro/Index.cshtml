@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebViajes365.Models.Foro>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Foro", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idForo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Procedencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotivoVisita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conformidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idUsuario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idForo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Procedencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotivoVisita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conformidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idUsuario)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar " href="@Url.Action("Modificar", "Foro", new {  id=item.idForo })"><i class="glyphicon glyphicon-edit"></i> </a>
+            <a class="btn btn-info btn-xs" title="Detalles" href="@Url.Action("DetalleForo", "Foro", new {  id=item.idForo })"><i class="glyphicon glyphicon-pencil"></i> </a>
+            <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("EliminarForo", "Foro", new {  id=item.idForo })"><i class="glyphicon glyphicon-trash"></i> </a>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>

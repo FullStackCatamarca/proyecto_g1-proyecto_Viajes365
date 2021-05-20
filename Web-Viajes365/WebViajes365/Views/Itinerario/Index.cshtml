@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebViajes365.Models.Itinerario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idItinerarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rutas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transporte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantDpto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoItinerario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kmsRecorridos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hsViaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idLocalidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idItinerarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rutas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transporte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantDpto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoItinerario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kmsRecorridos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hsViaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idLocalidad)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar " href="@Url.Action("Modificar", "Itinerario", new {  id=item.idItinerarios })"><i class="glyphicon glyphicon-edit"></i> </a>
+            <a class="btn btn-info btn-xs" title="Detalles" href="@Url.Action("DetalleItinerario", "Itinerario", new {  id=item.idItinerarios })"><i class="glyphicon glyphicon-pencil"></i> </a>
+            <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("EliminarItinerario", "Itinerario", new {  id=item.idItinerarios })"><i class="glyphicon glyphicon-trash"></i> </a>
+           @* @Html.ActionLink("Editar", "Modificar", new { id = item.idItinerarios }) |*@
+           @* @Html.ActionLink("Detalles", "DetalleItinerario", new { id = item.idItinerarios }) |*@
+           @* @Html.ActionLink("Eliminar", "EliminarItinerario", new { id = item.idItinerarios })*@
+        </td>
+    </tr>
+}
+
+</table>

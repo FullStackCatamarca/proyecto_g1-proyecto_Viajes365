@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebViajes365.Models.Localidades>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear Localidad", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idLocalidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alojamiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gastronomia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idDpto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idLocalidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alojamiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gastronomia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idDpto)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar " href="@Url.Action("Modificar", "Localidad", new {  id=item.idLocalidad })"><i class="glyphicon glyphicon-edit"></i> </a>
+            <a class="btn btn-info btn-xs" title="Detalles" href="@Url.Action("DetalleLocalidades", "Localidad", new {  id=item.idLocalidad })"><i class="glyphicon glyphicon-pencil"></i> </a>
+            <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("EliminarLocalidades", "Localidad", new {  id=item.idLocalidad })"><i class="glyphicon glyphicon-trash"></i> </a>
+           @* @Html.ActionLink("Editar", "Modificar", new { id = item.idLocalidad }) |*@
+           @*@Html.ActionLink("Detalles", "DetalleLocalidades", new { id = item.idLocalidad }) |*@
+           @* @Html.ActionLink("Eliminar", "EliminarLocalidades", new { id = item.idLocalidad })*@
+        </td>
+    </tr>
+}
+
+</table>

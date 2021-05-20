@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Viajes365ModelStoreContainer" CdmEntityContainer="Viajes365Entities">
+    <EntitySetMapping Name="AtractivoTuristico">
+      <EntityTypeMapping TypeName="Viajes365Model.AtractivoTuristico">
+        <MappingFragment StoreEntitySet="AtractivoTuristico">
+          <ScalarProperty Name="idAtractivo" ColumnName="idAtractivo" />
+          <ScalarProperty Name="tipoAtractivo" ColumnName="tipoAtractivo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="idLocalidad" ColumnName="idLocalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chat">
+      <EntityTypeMapping TypeName="Viajes365Model.Chat">
+        <MappingFragment StoreEntitySet="Chat">
+          <ScalarProperty Name="idChat" ColumnName="idChat" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="Consulta" ColumnName="Consulta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clima">
+      <EntityTypeMapping TypeName="Viajes365Model.Clima">
+        <MappingFragment StoreEntitySet="Clima">
+          <ScalarProperty Name="idClima" ColumnName="idClima" />
+          <ScalarProperty Name="idLocalidad" ColumnName="idLocalidad" />
+          <ScalarProperty Name="PronosticoExtendido" ColumnName="PronosticoExtendido" />
+          <ScalarProperty Name="HistorialClimas" ColumnName="HistorialClimas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="Viajes365Model.Departamentos">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="idDpto" ColumnName="idDpto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="cant_Itinerarios" ColumnName="cant_Itinerarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foro">
+      <EntityTypeMapping TypeName="Viajes365Model.Foro">
+        <MappingFragment StoreEntitySet="Foro">
+          <ScalarProperty Name="idForo" ColumnName="idForo" />
+          <ScalarProperty Name="Procedencia" ColumnName="Procedencia" />
+          <ScalarProperty Name="MotivoVisita" ColumnName="MotivoVisita" />
+          <ScalarProperty Name="Conformidad" ColumnName="Conformidad" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Itinerario">
+      <EntityTypeMapping TypeName="Viajes365Model.Itinerario">
+        <MappingFragment StoreEntitySet="Itinerario">
+          <ScalarProperty Name="idItinerarios" ColumnName="idItinerarios" />
+          <ScalarProperty Name="Rutas" ColumnName="Rutas" />
+          <ScalarProperty Name="Transporte" ColumnName="Transporte" />
+          <ScalarProperty Name="cantDpto" ColumnName="cantDpto" />
+          <ScalarProperty Name="tipoItinerario" ColumnName="tipoItinerario" />
+          <ScalarProperty Name="kmsRecorridos" ColumnName="kmsRecorridos" />
+          <ScalarProperty Name="hsViaje" ColumnName="hsViaje" />
+          <ScalarProperty Name="idLocalidad" ColumnName="idLocalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localidades">
+      <EntityTypeMapping TypeName="Viajes365Model.Localidades">
+        <MappingFragment StoreEntitySet="Localidades">
+          <ScalarProperty Name="idLocalidad" ColumnName="idLocalidad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Alojamiento" ColumnName="Alojamiento" />
+          <ScalarProperty Name="Gastronomia" ColumnName="Gastronomia" />
+          <ScalarProperty Name="idDpto" ColumnName="idDpto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Viajes365Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="Viajes365Model.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="idItinerarios" ColumnName="idItinerarios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

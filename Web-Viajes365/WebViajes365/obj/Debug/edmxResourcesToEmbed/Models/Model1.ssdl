@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Viajes365Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AtractivoTuristico">
+    <Key>
+      <PropertyRef Name="idAtractivo" />
+    </Key>
+    <Property Name="idAtractivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoAtractivo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="idLocalidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Chat">
+    <Key>
+      <PropertyRef Name="idChat" />
+    </Key>
+    <Property Name="idChat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+    <Property Name="Consulta" Type="varchar" MaxLength="70" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clima">
+    <Key>
+      <PropertyRef Name="idClima" />
+    </Key>
+    <Property Name="idClima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idLocalidad" Type="int" Nullable="false" />
+    <Property Name="PronosticoExtendido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HistorialClimas" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="idDpto" />
+    </Key>
+    <Property Name="idDpto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cant_Itinerarios" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Foro">
+    <Key>
+      <PropertyRef Name="idForo" />
+    </Key>
+    <Property Name="idForo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Procedencia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MotivoVisita" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Conformidad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Post" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Itinerario">
+    <Key>
+      <PropertyRef Name="idItinerarios" />
+    </Key>
+    <Property Name="idItinerarios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rutas" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Transporte" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cantDpto" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tipoItinerario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="kmsRecorridos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="hsViaje" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idLocalidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Localidades">
+    <Key>
+      <PropertyRef Name="idLocalidad" />
+    </Key>
+    <Property Name="idLocalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Alojamiento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gastronomia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idDpto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="idItinerarios" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AtractivoTuristico_Localidades">
+    <End Role="Localidades" Type="Self.Localidades" Multiplicity="1" />
+    <End Role="AtractivoTuristico" Type="Self.AtractivoTuristico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidades">
+        <PropertyRef Name="idLocalidad" />
+      </Principal>
+      <Dependent Role="AtractivoTuristico">
+        <PropertyRef Name="idLocalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chat_Usuario1">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Chat">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clima_Localidades">
+    <End Role="Localidades" Type="Self.Localidades" Multiplicity="1" />
+    <End Role="Clima" Type="Self.Clima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidades">
+        <PropertyRef Name="idLocalidad" />
+      </Principal>
+      <Dependent Role="Clima">
+        <PropertyRef Name="idLocalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Foro_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Foro" Type="Self.Foro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Foro">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Itinerario_Localidades">
+    <End Role="Localidades" Type="Self.Localidades" Multiplicity="1" />
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidades">
+        <PropertyRef Name="idLocalidad" />
+      </Principal>
+      <Dependent Role="Itinerario">
+        <PropertyRef Name="idLocalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Localidades_Departamentos">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Localidades" Type="Self.Localidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="idDpto" />
+      </Principal>
+      <Dependent Role="Localidades">
+        <PropertyRef Name="idDpto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Itinerario1">
+    <End Role="Itinerario" Type="Self.Itinerario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerario">
+        <PropertyRef Name="idItinerarios" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idItinerarios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Viajes365ModelStoreContainer">
+    <EntitySet Name="AtractivoTuristico" EntityType="Self.AtractivoTuristico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chat" EntityType="Self.Chat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clima" EntityType="Self.Clima" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Foro" EntityType="Self.Foro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Itinerario" EntityType="Self.Itinerario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Localidades" EntityType="Self.Localidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AtractivoTuristico_Localidades" Association="Self.FK_AtractivoTuristico_Localidades">
+      <End Role="Localidades" EntitySet="Localidades" />
+      <End Role="AtractivoTuristico" EntitySet="AtractivoTuristico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chat_Usuario1" Association="Self.FK_Chat_Usuario1">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Chat" EntitySet="Chat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clima_Localidades" Association="Self.FK_Clima_Localidades">
+      <End Role="Localidades" EntitySet="Localidades" />
+      <End Role="Clima" EntitySet="Clima" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Foro_Usuario" Association="Self.FK_Foro_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Foro" EntitySet="Foro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Itinerario_Localidades" Association="Self.FK_Itinerario_Localidades">
+      <End Role="Localidades" EntitySet="Localidades" />
+      <End Role="Itinerario" EntitySet="Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Localidades_Departamentos" Association="Self.FK_Localidades_Departamentos">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Localidades" EntitySet="Localidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Itinerario1" Association="Self.FK_Usuario_Itinerario1">
+      <End Role="Itinerario" EntitySet="Itinerario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

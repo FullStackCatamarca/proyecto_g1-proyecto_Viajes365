@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebViajes365.Models.Clima>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar Clima", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idClima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idLocalidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PronosticoExtendido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HistorialClimas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idClima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idLocalidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PronosticoExtendido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HistorialClimas)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar " href="@Url.Action("Modificar", "Clima", new {  id=item.idClima })"><i class="glyphicon glyphicon-edit"></i> </a>
+            <a class="btn btn-info btn-xs" title="Detalles" href="@Url.Action("DetalleClima", "Clima", new {  id=item.idClima })"><i class="glyphicon glyphicon-pencil"></i> </a>
+            <a class="btn btn-danger btn-xs" title="Eliminar" href="@Url.Action("EliminarClima", "Clima", new {  id=item.idClima })"><i class="glyphicon glyphicon-trash"></i> </a>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+    </tr>
+}
+
+</table>

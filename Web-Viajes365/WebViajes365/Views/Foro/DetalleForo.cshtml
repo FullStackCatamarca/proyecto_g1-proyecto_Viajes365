@@ -1,0 +1,67 @@
+﻿@model WebViajes365.Models.Foro
+
+@{
+    ViewBag.Title = "DetalleForo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetalleForo</h2>
+
+<div>
+    <h4>Foro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idForo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idForo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Procedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Procedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotivoVisita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotivoVisita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conformidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conformidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idUsuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Modificar", new { id = Model.idForo  }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>

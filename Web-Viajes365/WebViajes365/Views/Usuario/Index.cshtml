@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebViajes365.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Agregar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idItinerarios)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contraseña)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idItinerarios)
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs" title="Editar "href="@Url.Action("Modificar", "Usuario", new {  id=item.idUsuario })"><i class="glyphicon glyphicon-edit"></i> </a> 
+            <a class="btn btn-info btn-xs" title="Detalles" href="@Url.Action("DetalleUsuario", "Usuario", new {  id=item.idUsuario })"><i class="glyphicon glyphicon-pencil"></i> </a> 
+            <a class="btn btn-danger btn-xs"title="Eliminar" href="@Url.Action("EliminarUsuario", "Usuario", new {  id=item.idUsuario })"><i class="glyphicon glyphicon-trash"></i> </a>
+           @*Html.ActionLink("Editar", "Modificar", new { id = item.idUsuario }) |*@
+           @* @Html.ActionLink("Detalles", "DetalleUsuario", new { id = item.idUsuario }) |
+           @* @Html.ActionLink("Eliminar", "EliminarUsuario", new { id = item.idUsuario })*@
+        </td>
+    </tr>
+}
+
+</table>
